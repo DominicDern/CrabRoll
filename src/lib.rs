@@ -13,6 +13,8 @@ enum Die {
 pub struct Roll {
     rolls: Vec<MicroRoll>,
 }
+
+impl Roll {}
 struct MicroRoll {
     die: Die,
     modifier: u8,
