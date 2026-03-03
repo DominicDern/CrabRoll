@@ -45,6 +45,37 @@ impl MicroRoll {
             dmg_type,
         }
     }
+
+    // Takes in a string slice and parses it for roll data
+    // D10 + 2 Slashing
+    fn from_text(text: &str) -> Self {
+        let die_type = match text.split_once('+') {
+            Some(die_type) => {
+                let die_type = die_type.0.to_lowercase();
+                if die_type == "d2" {
+                    Some(Die::D2)
+                } else if die_type == "d4" {
+                    Some(Die::D4)
+                } else if die_type == "d6" {
+                    Some(Die::D6)
+                } else if die_type == "d8" {
+                    Some(Die::D8)
+                } else if die_type == "d10" {
+                    Some(Die::D10)
+                } else if die_type == "d12" {
+                    Some(Die::D12)
+                } else if die_type == "d20" {
+                    Some(Die::D20)
+                } else if die_type == "percentile" {
+                    Some(Die::Percentile)
+                } else {
+                    None
+                }
+            }
+            None => None,
+        };
+        todo!()
+    }
 }
 
 #[cfg(test)]
